@@ -1,0 +1,17 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: white;
+}
+
+h1 {
+  color: white;
+  font-weight: bold;
+}
+
+#dailyForecast {
+  margin-left: 2px;
+  padding-left: 40px;
+  border-style:hidden;
+  
+}
+
