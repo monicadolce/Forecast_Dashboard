@@ -15,10 +15,32 @@ h1 {
   
 }
 
-#fiveDayForecast{
+#firstDayFiveDay{
   margin-top: 300px;
   margin-left: 5px;
-
+  font-size: small;
 }
 
+#secondDayFiveDay{
+  margin-top: 300px;
+  margin-left: 5px;
+  font-size: small;
+}
 
+#thirdDayFiveDay{
+  margin-top: 300px;
+  margin-left: 5px;
+  font-size: small;
+}
+
+#fourthDayFiveDay{
+  margin-top: 300px;
+  margin-left: 5px;
+  font-size: small;
+}
+
+#fifthDayFiveDay{
+  margin-top: 300px;
+  margin-left: 5px;
+  font-size: small;
+}
