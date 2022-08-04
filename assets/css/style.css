@@ -13,6 +13,21 @@ h1 {
   
 }
 
+.favorable {
+  background-color: green;
+  /* box-sizing:content-box; */
+}
+
+.moderate {
+  background-color: yellow;
+  /* box-sizing:content-box; */
+}
+
+.severe {
+  background-color: red;
+  /* box-sizing:content-box; */
+}
+
 #firstDayFiveDay{
   margin-top: 300px;
   font-size: small;
