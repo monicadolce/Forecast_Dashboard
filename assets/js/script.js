@@ -1,10 +1,35 @@
 var searchCity = document.querySelector("#searchBtn");
 var city = document.querySelector("#enterCity");
 
+// retrieve history of searches if present otherwise setting up empty history
+var searches = JSON.parse(localStorage.getItem("searches")) || [];
+console.log(searches);
+
 searchCity.addEventListener("click", Citysearch);
+
+function displayHistory() {
+    $(".searches").empty();
+
+    for (let i = 0; i < searches.length; i++) {
+     console.log(i);
+    
+     var button = $("button")
+     button.text(searches[i])
+     $(".searches").append(button);
+    }  
+}
+displayHistory();
 
 function Citysearch() {
    var input = city.value 
+   if (!searches.includes(input)){
+   searches.push(input)
+//    resaving 
+   localStorage.setItem("searches", JSON.stringify(searches));
+
+   }
+displayHistory();
+   
     // var url = `https://fast-dawn-89938.herokuapp.com/api.openweathermap.org/geo/1.0/direct?q=${input}&limit=1&appid=ac75e314d25573644ae4d9a903da5c8c`
     var url = `https://api.openweathermap.org/geo/1.0/direct?q=${input}&limit=1&appid=ac75e314d25573644ae4d9a903da5c8c`
     fetch(url).then(function(res){
@@ -27,6 +52,7 @@ function Citysearch() {
             document.querySelector(".humidity").innerText = "Humidity: " + data.current.humidity + "%";
             document.querySelector(".uv").innerText = "UV Index: " + data.current.uvi;
             // document.querySelector(".uv-icon").setAttribute("src", `https://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`);
+        displayUv(data.current.uvi);
         })
         fetch(url).then(function(res){
             return res.json()
@@ -99,28 +125,25 @@ function Citysearch() {
 
 // To do
 // Add city to search history and can click on it to see current and future conditions;
-// Uv index must have a color that indicates whether the conditions are favorable 0-2 green, moderate 3-5 yellow, or severe 6-11 or more red; 
-// no uv index for 5 day;
-// Check five day forecast icons;
 
 // Uv Index colors:
 
-$(".uv").each(function (event) {
-    console.log(this);
-   var uvIndex = $(this).data("uv")
-
+function displayUv(uvIndex) {
+    var uv = $(".uv")
+    // console.log(typeof uvIndex);
    if (uvIndex < 3) {
-    $(this).addClass("favorable"); 
+    uv.addClass("favorable"); 
 
 } 
 else if (uvIndex >=3 && uvIndex <= 5) {
-    $(this).addClass("moderate");
+    uv.addClass("moderate");
 
 } else {
-   $(this).addClass("severe");
+   uv.addClass("severe");
+}
 }
 
-});
+
 
 
 
