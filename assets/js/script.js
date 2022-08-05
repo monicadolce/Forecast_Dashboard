@@ -38,6 +38,7 @@ function Citysearch() {
             document.querySelector(".temp1").innerText = "Temp: " + data.daily[0].temp.day + " F";
             document.querySelector(".wind1").innerText = "Wind: " + data.daily[0].wind_speed + " MPH";
             document.querySelector(".humidity1").innerText = "Humidity: " + data.daily[0].humidity + "%";
+            $("#firstDayFiveDay").addClass("card");
             // document.querySelector(".uv1").innerText = "UV Index: " + data.daily[0].uvi;
         })
         fetch(url).then(function(res){
@@ -50,6 +51,7 @@ function Citysearch() {
             document.querySelector(".temp2").innerText = "Temp: " + data.daily[1].temp.day + " F";
             document.querySelector(".wind2").innerText = "Wind: " + data.daily[1].wind_speed + " MPH";
             document.querySelector(".humidity2").innerText = "Humidity: " + data.daily[1].humidity + "%";
+            $("#secondDayFiveDay").addClass("card");
             // document.querySelector(".uv2").innerText = "UV Index: " + data.daily[1].uvi;
         })
         fetch(url).then(function(res){
@@ -62,6 +64,7 @@ function Citysearch() {
             document.querySelector(".temp3").innerText = "Temp: " + data.daily[2].temp.day + " F";
             document.querySelector(".wind3").innerText = "Wind: " + data.daily[2].wind_speed + " MPH";
             document.querySelector(".humidity3").innerText = "Humidity: " + data.daily[2].humidity + "%";
+            $("#thirdDayFiveDay").addClass("card");
             // document.querySelector(".uv3").innerText = "UV Index: " + data.daily[2].uvi;
         })
         fetch(url).then(function(res){
@@ -74,6 +77,7 @@ function Citysearch() {
             document.querySelector(".temp4").innerText = "Temp: " + data.daily[3].temp.day + " F";
             document.querySelector(".wind4").innerText = "Wind: " + data.daily[3].wind_speed + " MPH";
             document.querySelector(".humidity4").innerText = "Humidity: " + data.daily[3].humidity + "%";
+            $("#fourthDayFiveDay").addClass("card");
             // document.querySelector(".uv4").innerText = "UV Index: " + data.daily[3].uvi;
         })
         fetch(url).then(function(res){
@@ -86,6 +90,7 @@ function Citysearch() {
             document.querySelector(".temp5").innerText = "Temp: " + data.daily[4].temp.day + " F";
             document.querySelector(".wind5").innerText = "Wind: " + data.daily[4].wind_speed + " MPH";
             document.querySelector(".humidity5").innerText = "Humidity: " + data.daily[4].humidity + "%";
+            $("#fifthDayFiveDay").addClass("card");
             // document.querySelector(".uv5").innerText = "UV Index: " + data.daily[4].uvi;
         })
     })
@@ -93,7 +98,7 @@ function Citysearch() {
 
 
 // To do
-// Add city to search history and can click on it to see cuurent and future conditions;
+// Add city to search history and can click on it to see current and future conditions;
 // Uv index must have a color that indicates whether the conditions are favorable 0-2 green, moderate 3-5 yellow, or severe 6-11 or more red; 
 // no uv index for 5 day;
 // Check five day forecast icons;
@@ -105,30 +110,32 @@ $(".uv").each(function (event) {
    var uvIndex = $(this).data("uv")
 
    if (uvIndex < 3) {
-    $(this).addClass("favorable") 
+    $(this).addClass("favorable"); 
 
-} else if (uvIndex >=3 && uvIndex <= 5) {
-    $(this).addClass("moderate")
+} 
+else if (uvIndex >=3 && uvIndex <= 5) {
+    $(this).addClass("moderate");
 
 } else {
-   $(this).addClass("severe")
+   $(this).addClass("severe");
 }
 
 });
 
 
+
 // Save city info into local storage:
-// var container = $(".container-fluid").click(function (event) {
+var container = $(".container-fluid").click(function (event) {
 
-//     if (event.target.nodeName === "I") {
+    if (event.target.nodeName === "I") {
 
-//         var buttonId = event.target.attributes[0].nodeValue;
-//         var inputValue = $("." + buttonId).val()
-//         localStorage.setItem(buttonId, inputValue);
-//     }
-// })
+        var buttonId = event.target.attributes[0].nodeValue;
+        var inputValue = $("." + buttonId).val()
+        localStorage.setItem(buttonId, inputValue);
+    }
+})
 
-// $("#enterCity").val(localStorage.getItem("enterCity"));
+$("#enterCity").val(localStorage.getItem("enterCity"));
 
 // function saveCity(params) {
     

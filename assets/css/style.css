@@ -8,6 +8,10 @@ h1 {
   font-weight: bold;
 }
 
+h6 {
+  font-size: small;
+}
+
 #dailyForecast {
   border-style:hidden;
   
@@ -26,6 +30,10 @@ h1 {
 .severe {
   background-color: red;
   /* box-sizing:content-box; */
+}
+
+.card {
+  background-color: aqua;
 }
 
 #firstDayFiveDay{
