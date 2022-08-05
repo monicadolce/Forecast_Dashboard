@@ -28,6 +28,7 @@ function Citysearch() {
    localStorage.setItem("searches", JSON.stringify(searches));
 
    }
+
 displayHistory();
    
     // var url = `https://fast-dawn-89938.herokuapp.com/api.openweathermap.org/geo/1.0/direct?q=${input}&limit=1&appid=ac75e314d25573644ae4d9a903da5c8c`
@@ -148,17 +149,17 @@ else if (uvIndex >=3 && uvIndex <= 5) {
 
 
 // Save city info into local storage:
-var container = $(".container-fluid").click(function (event) {
+// var container = $(".container-fluid").click(function (event) {
 
-    if (event.target.nodeName === "I") {
+//     if (event.target.nodeName === "I") {
 
-        var buttonId = event.target.attributes[0].nodeValue;
-        var inputValue = $("." + buttonId).val()
-        localStorage.setItem(buttonId, inputValue);
-    }
-})
+//         var buttonId = event.target.attributes[0].nodeValue;
+//         var inputValue = $("." + buttonId).val()
+//         localStorage.setItem(buttonId, inputValue);
+//     }
+// })
 
-$("#enterCity").val(localStorage.getItem("enterCity"));
+// $("#enterCity").val(localStorage.getItem("enterCity"));
 
 // function saveCity(params) {
     
