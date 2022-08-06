@@ -12,6 +12,14 @@ h6 {
   font-size: small;
 }
 
+button {
+  background-color: aqua;
+  /* font-size: 200px; */
+  padding: 20px 90px;
+  padding-top: 1px;
+
+}
+
 #dailyForecast {
   border-style:hidden;
   

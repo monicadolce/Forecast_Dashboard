@@ -12,12 +12,27 @@ function displayHistory() {
 
     for (let i = 0; i < searches.length; i++) {
      console.log(i);
+
+
     
-     var button = $("button")
-     button.text(searches[i])
-     $(".searches").append(button);
+var searchBox = document.querySelector(".saved-cities");
+
+//   searchBox.innerHTML = ('');
+
+     var button = document.createElement("BUTTON");
+     button.innerText = (searches[i]);
+     button.addEventListener("click", displayHistory);
+     searchBox.append(button);
+
+
+
+    //  var button = $("button")
+    //  button.text(searches[i])
+    //  $(".saved-cities").append(button);
     }  
 }
+
+
 displayHistory();
 
 function Citysearch() {
