@@ -147,7 +147,10 @@ else if (uvIndex >=3 && uvIndex <= 5) {
 
 
 
-
+function capCity(input) {
+    return input.charAt(0).toUpperCase() + input.slice(1);
+}
+console.log(capCity('hello'));
 
 
 // Save city info into local storage:
