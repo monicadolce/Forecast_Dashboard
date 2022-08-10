@@ -63,6 +63,8 @@ displayHistory();
             return res.json()
         }).then(function(data){
             console.log(data);
+
+            // This variable and function ensure city will be capitalized
             let capitalizedCity = capCity(input)
             capCity(input);
             document.querySelector(".cityName").innerText = capitalizedCity + ", " + moment.unix(data.current.dt).format("MMMM Do YYYY");
@@ -148,7 +150,7 @@ else if (uvIndex >=3 && uvIndex <= 5) {
 }};
 
 
-// let capitalizedCity = capCity(input)
+// capCity function is defined
 function capCity(input) {
     return input.charAt(0).toUpperCase() + input.slice(1);
 }
