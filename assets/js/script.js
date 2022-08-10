@@ -63,7 +63,9 @@ displayHistory();
             return res.json()
         }).then(function(data){
             console.log(data);
-            document.querySelector(".cityName").innerText = input + ", " + moment.unix(data.current.dt).format("MMMM Do YYYY");
+            let capitalizedCity = capCity(input)
+            capCity(input);
+            document.querySelector(".cityName").innerText = capitalizedCity + ", " + moment.unix(data.current.dt).format("MMMM Do YYYY");
             document.querySelector(".icon").setAttribute("src", `https://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`);
             document.querySelector(".temp").innerText = "Temp: " + data.current.temp + " F";
             document.querySelector(".wind").innerText = "Wind: " + data.current.wind_speed + " MPH";
@@ -146,7 +148,7 @@ else if (uvIndex >=3 && uvIndex <= 5) {
 }};
 
 
-
+// let capitalizedCity = capCity(input)
 function capCity(input) {
     return input.charAt(0).toUpperCase() + input.slice(1);
 }
