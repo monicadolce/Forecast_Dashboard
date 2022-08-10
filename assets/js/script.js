@@ -65,8 +65,8 @@ displayHistory();
             console.log(data);
 
             // This variable and function ensure city will be capitalized
-            let capitalizedCity = capCity(input)
-            capCity(input);
+            let capitalizedCity = capLowCity(input)
+            capLowCity(input);
             document.querySelector(".cityName").innerText = capitalizedCity + ", " + moment.unix(data.current.dt).format("MMMM Do YYYY");
             document.querySelector(".icon").setAttribute("src", `https://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`);
             document.querySelector(".temp").innerText = "Temp: " + data.current.temp + " F";
@@ -151,10 +151,10 @@ else if (uvIndex >=3 && uvIndex <= 5) {
 
 
 // capCity function is defined
-function capCity(input) {
-    return input.charAt(0).toUpperCase() + input.slice(1);
+function capLowCity(input) {
+    return input.charAt(0).toUpperCase() + input.slice(1).toLowerCase();
 }
-console.log(capCity('hello'));
+// console.log(capCity('hello'));
 
 
 // Save city info into local storage:
