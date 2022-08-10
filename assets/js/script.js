@@ -27,9 +27,6 @@ var searchBox = document.querySelector(".saved-cities");
      button.addEventListener("click", citySearch);
      searchBox.append(button);
 
-// So the key is going to be attaching a unique identifier to each of those buttons that you make
-
-// And you can get a unique id from theri id in the array
 
     //  var button = $("button")
     //  button.text(searches[i])
@@ -42,13 +39,12 @@ displayHistory();
 
 // citySearch function displays current forecast and five-day forecast using OpenWeather One Call API
 // fetch() and moment() are used to display information 
-
 function citySearch() {
    var input = city.value 
    if (!searches.includes(input)){
    searches.push(input)
 
-//    Resave searches in local storage 
+// Resave searches in local storage 
    localStorage.setItem("searches", JSON.stringify(searches));
 
    }
@@ -67,7 +63,7 @@ displayHistory();
             return res.json()
         }).then(function(data){
             console.log(data);
-            document.querySelector(".cityName").innerText = input + " " + moment.unix(data.current.dt).format("MMMM Do YYYY");
+            document.querySelector(".cityName").innerText = input + ", " + moment.unix(data.current.dt).format("MMMM Do YYYY");
             document.querySelector(".icon").setAttribute("src", `https://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`);
             document.querySelector(".temp").innerText = "Temp: " + data.current.temp + " F";
             document.querySelector(".wind").innerText = "Wind: " + data.current.wind_speed + " MPH";
@@ -136,26 +132,19 @@ displayHistory();
     })
 };
 
-
-// To do
-// Add city to search history and can click on it to see current and future conditions;
-
 // Uv Index colors to display favorable, moderate, severe conditions
-
 function displayUv(uvIndex) {
     var uv = $(".uv")
     // console.log(typeof uvIndex);
    if (uvIndex < 3) {
     uv.addClass("favorable"); 
-
 } 
 else if (uvIndex >=3 && uvIndex <= 5) {
     uv.addClass("moderate");
-
 } else {
    uv.addClass("severe");
-}
-}
+}};
+
 
 
 

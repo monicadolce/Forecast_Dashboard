@@ -12,13 +12,14 @@ h6 {
   font-size: small;
 }
 
-button {
-  background-color: rgb(255, 0, 238);
-  /* font-size: 200px; */
-  padding: 20px 90px;
-  padding-top: 1px;
+/* button {
+  display: flex;
+  background-color: rgb(255, 0, 238); */
 
-}
+  /* font-size: 10px; */
+  /* padding: 20px 40px;
+  padding-top: 2px;
+} */
 
 #dailyForecast {
   border-style:hidden;
@@ -27,17 +28,17 @@ button {
 
 .favorable {
   background-color: green;
-  /* box-sizing:content-box; */
+ 
 }
 
 .moderate {
   background-color: yellow;
-  /* box-sizing:content-box; */
+  
 }
 
 .severe {
   background-color: red;
-  /* box-sizing:content-box; */
+
 }
 
 .card {
