@@ -11,7 +11,7 @@ console.log(searches);
 searchCity.addEventListener("click", citySearch);
 
 function displayHistory() {
-    $(".searches").empty();
+    $(".saved-cities").empty();
 
     for (let i = 0; i < searches.length; i++) {
      console.log(i);
@@ -20,11 +20,14 @@ function displayHistory() {
 // Create button to display search history and can click on it to see current and future conditions  
 var searchBox = document.querySelector(".saved-cities");
 
-  searchBox.innerHTML = ('');
+//   searchBox.innerHTML = ('');
 
      var button = document.createElement("BUTTON");
      button.innerText = (searches[i]);
-     button.addEventListener("click", citySearch);
+     button.addEventListener("click", function(event){
+       city.value = ""
+       citySearch(event.target.innerText) 
+     });
      searchBox.append(button);
 
 
@@ -39,8 +42,11 @@ displayHistory();
 
 // citySearch function displays current forecast and five-day forecast using OpenWeather One Call API
 // fetch() and moment() are used to display information 
-function citySearch() {
+function citySearch(prevCity) {
    var input = city.value 
+   if (input === "") {
+    input = prevCity
+   }
    if (!searches.includes(input)){
    searches.push(input)
 
@@ -64,7 +70,7 @@ displayHistory();
         }).then(function(data){
             console.log(data);
 
-            // This variable and function ensure city will be capitalized
+            // This variable and function ensure first letter of city will be capitalized and the rest lowercase
             let capitalizedCity = capLowCity(input)
             capLowCity(input);
             document.querySelector(".cityName").innerText = capitalizedCity + ", " + moment.unix(data.current.dt).format("MMMM Do YYYY");
@@ -138,7 +144,12 @@ displayHistory();
 
 // Uv Index colors to display favorable, moderate, severe conditions
 function displayUv(uvIndex) {
+   
+    // uvIndex = Math.floor(uvIndex)
+    
     var uv = $(".uv")
+   
+    uv.removeClass("favorable moderate severe")
     // console.log(typeof uvIndex);
    if (uvIndex < 3) {
     uv.addClass("favorable"); 
@@ -150,7 +161,7 @@ else if (uvIndex >=3 && uvIndex <= 5) {
 }};
 
 
-// capCity function is defined
+// capLowCity function is defined
 function capLowCity(input) {
     return input.charAt(0).toUpperCase() + input.slice(1).toLowerCase();
 }
