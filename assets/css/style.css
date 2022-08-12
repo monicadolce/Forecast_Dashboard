@@ -1,44 +1,45 @@
 body {
   font-family: 'Open Sans', sans-serif;
-  background-color: white;
+  background-color: rgb(168, 236, 255);
 }
 
 h1 {
-  color: white;
-  font-weight: bold;
+  color: black;
 }
 
 h6 {
   font-size: small;
 }
 
+#searchBtn {
+margin-top: 0;
+}
 button {
   display: block;
-  /* background-color: rgb(255, 0, 238); */
+  text-align: center;
+  background-color: aqua;
+  margin-top: 10px;
 }
-  /* font-size: 10px;
-  /* /* padding: 20px 40px; */
-  /* padding-top: 2px;
-} */
+
+button:hover{
+  background-color: blue;
+  color:aqua
+}
 
 #dailyForecast {
   border-style:hidden;
-  
 }
 
 .favorable {
   background-color: green;
- 
 }
 
 .moderate {
   background-color: yellow;
-  
 }
 
 .severe {
   background-color: red;
-
 }
 
 .card {
