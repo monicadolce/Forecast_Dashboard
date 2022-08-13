@@ -5,6 +5,6 @@ Forecast Dashboard is a weather dashboard that runs in the browser and features 
 <img src="./assets/images/weather.png" alt="weather-dashboard"/>
 
 
-Application deployed at live URL : <a href= "https://monicadolce.github.io/Forecast_Dashboard/">Visit Live Work Day Scheduler</a>
+Application deployed at live URL : <a href= "https://monicadolce.github.io/Forecast_Dashboard/">Visit Live Forecast Dashboard</a>
 
 Application GitHub URL : <a href= "https://github.com/monicadolce/Forecast_Dashboard">Visit Monica's GitHub Repository</a> 
